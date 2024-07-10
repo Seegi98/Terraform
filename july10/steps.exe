@@ -1,0 +1,54 @@
+                                    <VS CODE>{Dev-1}
+
+step 1: create(write code) s3 bucket and ec2 instance(main.tf) and provide the provider block
+
+        Run terraform commands(init,plan,apply)
+
+
+
+step 2: create backend.tf file (pass the bucket name (recently created)) and may ignore s3 bucket code in main.tf.
+
+        Run terraform commands(init,plan,apply)
+
+
+step 3: write dynamoDB code in main.tf and don't mention anything in the backend.tf file.
+
+        Run terraform commands(init,plan,apply # may run init -reconfigure )
+
+
+step 4: call dynamoDB table in backend.tf file
+
+        Run terraform commands(init,plan,apply # may run init -reconfigure)
+
+
+after completion upload all the files into git.
+
+
+
+
+
+                                    <EC2 SERVER>{Dev-2}
+
+
+step 1: select to any instance
+        go to actions and click on security
+        click on modify IAM role(before that create an IAM role of ec2 full access)
+
+
+step 2: connect to the selected instance 
+        install terraform using following steps
+        a. sudo yum install -y wget unzip
+        b. sudo mv terraform /usr/local/bin/
+        and give terraform --version
+
+
+step 3: install git using(yum install git -y)
+        clone the code from git
+        remove dynamoDB block in main.tf
+        Run terraform commands(init,plan,apply)
+
+
+
+
+after the connection modify the instance attributes and try to apply it from both the ends
+        
