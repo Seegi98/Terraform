@@ -1,8 +1,8 @@
 resource "aws_instance" "user" {
 
-    ami = "ami-01376101673c89611"
-    instance_type = "t2.micro"
-    key_name = "cust-user"
+    ami = var.ami
+    instance_type = var.instance_type
+    key_name = var.key_name
     tags = {
       Name = "user" 
     }
